@@ -1,0 +1,13 @@
+
+text
+
+venv/
+
+__pycache__/
+
+*.pyc
+
+model/
+
+.vscode/
+

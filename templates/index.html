@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Spam Detector</title>
+  <!-- url_for builds the correct path to files inside static/ -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="card">
+    <header>
+      <h1>📧 Email Spam Detector</h1>
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌓</button>
+    </header>
+
+    <p class="subtitle">Paste an email below and let the AI decide if it is spam.</p>
+
+    <textarea id="emailInput" rows="8" placeholder="Paste email text here..."></textarea>
+
+    <div class="samples">
+      <button id="sampleSpam" class="ghost-btn">Try a spam sample</button>
+      <button id="sampleHam" class="ghost-btn">Try a legitimate sample</button>
+    </div>
+
+    <button id="analyzeBtn" class="primary-btn">Analyze Email</button>
+
+    <p id="errorMsg" class="error hidden"></p>
+
+    <section id="result" class="result hidden">
+      <span id="badge" class="badge"></span>
+      <div class="bar"><div id="barFill" class="bar-fill"></div></div>
+      <p id="confText" class="conf"></p>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
