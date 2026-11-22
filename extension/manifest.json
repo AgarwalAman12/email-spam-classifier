@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "MailGuard — Local Spam Alert",
+  "version": "1.0.0",
+  "description": "Automatically scans opened emails in Gmail and Outlook Web using your local Flask spam model.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "http://127.0.0.1:5000/*",
+    "https://mail.google.com/*",
+    "https://outlook.live.com/*",
+    "https://outlook.office.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "MailGuard"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mail.google.com/*",
+        "https://outlook.live.com/*",
+        "https://outlook.office.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["banner.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
